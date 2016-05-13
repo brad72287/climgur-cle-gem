@@ -16,22 +16,41 @@ class Climgur
       hash = {}
       hash[:description] = preview.css("div.hover p").text
       hash[:preview_url] = preview.css(".image-list-link img").first["src"]
+      hash[:full_url] = preview.css(".image-list-link img").first["src"].gsub('b.jpg', '.jpg')
       hash[:type] = preview.css("div.hover div.post-info").text #because I want to filter out galleries and animated gifs
       @images << hash
     end
+    @images = @images.select {|x| x[:type].include?('image')}
     @images
   end
 
-  def filter_images
-    self.images.select {|x| x[:type].include?('image')}
+  def display
+    self.images.each_with_index do |x, index|
+       puts "#{index}. "+x[:description]
+       puts self.small_image(x[:preview_url])
+       puts ""
+    end
+  end
+
+  def small_image(url)
+    AsciiArt.new("http:"+url).to_ascii_art(color: true, width: 50)
+  end
+  
+   def large_image(url)
+    AsciiArt.new("http:"+url).to_ascii_art(color: true, width: 150)
+  end
+
+  def url_to_full(preview_url)
+
   end
 
 
 end
 
 hello = Climgur.new
-hello.scrape_main_page
-puts hello.filter_images
+puts hello.scrape_main_page
+#hello.display
+#hello.display
 # Scraper.new.geturl.css("div.cards div.hover p").each {|x| puts x.text}  #preview description title
 # Scraper.new.geturl.css(".image-list-link img").each {|x| puts x['src']} #preview image url
 
