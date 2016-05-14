@@ -6,20 +6,13 @@ require 'climgur/version'
 Gem::Specification.new do |spec|
   spec.name          = "climgur"
   spec.version       = Climgur::VERSION
-  spec.authors       = ["brad72287"]
+  spec.authors       = ["bradr"]
   spec.email         = ["brad72287@gmail.com"]
 
-  spec.summary       = %q{a command line imgur browser using the asciiart gem}
+  spec.summary       = %q{a command line imgur browser utilizing the asciiart gem}
   spec.homepage      = "https://github.com/brad72287/climgur-cle-gem"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   #spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   #spec.bindir        = "exe"
@@ -32,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
 
   spec.add_dependency "nokogiri"
-  spec.add_dependency "open-uri"
   spec.add_dependency "asciiart"
 
 end
