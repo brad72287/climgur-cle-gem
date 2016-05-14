@@ -1,8 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
-require 'asciiart'
-
 class Climgur::ImgurGet
   attr_accessor :images
 
@@ -27,20 +22,27 @@ class Climgur::ImgurGet
   def display_top_images
     puts "top 5 most popular images on imgur right now: \n --------"
     self.images.each_with_index do |x, index|
-       puts "(#{index+1}) "+x[:description]
        puts self.small_image(x[:preview_url])
+       puts "(#{index+1}) "+x[:description]
        puts "\n"
     end
     self
   end
 
+  def display_large_image(index)
+    puts self.large_image(self.images[index.to_i-1][:full_url])
+    puts "(#{index}) "+self.images[index.to_i-1][:description]
+  end
+
+
   def small_image(url)
     AsciiArt.new("http:"+url).to_ascii_art(color: true, width: 44)
   end
 
-   def large_image(url)
+  def large_image(url)
     AsciiArt.new("http:"+url).to_ascii_art(color: true, width: 122)
   end
+
 
 end
 

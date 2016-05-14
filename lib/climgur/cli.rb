@@ -20,23 +20,30 @@ class Climgur::CLI
        commands
       elsif input == 'exit'
         goodbye
+      elsif input == 'billions'
+        billions
       else
-        #output the image selection
+        climgur.display_large_image(input)
         commands
     end
   end
 
   def get_input
     input = 0
-    while input != 'start' && input !='exit' && input.to_i < 1 && input.to_i > @climgur.images.count
+    while input != 'start' && input !='exit' && !input.to_i.between?(1, climgur.images.count) && input != 'billions'
       puts "\nenter command: "
       input = gets.strip
     end
     input
   end
 
+  def billions
+    puts climgur.large_image("//6336-presscdn-26-82.pagely.netdna-cdn.com/wp-content/uploads/2013/11/carl-sagan.jpg")
+    commands
+  end
+
   def goodbye
-    puts "so long and thanks for all the fish."
+    puts "goodbye!"
   end
 end
 
