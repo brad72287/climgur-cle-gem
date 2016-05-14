@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/nitrous/code/labs/cli-gem-testing/climgur-cle-gem/lib/climgur/imgurget.rb @ line 24 Climgur::ImgurGet#scrape_main_page:
+
+    [1;34m13[0m: [32mdef[0m [1;34mscrape_main_page[0m
+    [1;34m14[0m:   mainpage = [1;34;4mNokogiri[0m::HTML(open([31m[1;31m"[0m[31mhttp://www.imgur.com[1;31m"[0m[31m[0m))
+    [1;34m15[0m:   mainpage.css([31m[1;31m"[0m[31mdiv.post[1;31m"[0m[31m[0m).each [32mdo[0m |preview|
+    [1;34m16[0m:     hash = {}
+    [1;34m17[0m:     hash[[33m:description[0m] = preview.css([31m[1;31m"[0m[31mdiv.hover p[1;31m"[0m[31m[0m).text
+    [1;34m18[0m:     hash[[33m:preview_url[0m] = preview.css([31m[1;31m"[0m[31m.image-list-link img[1;31m"[0m[31m[0m).first[[31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m]
+    [1;34m19[0m:     hash[[33m:full_url[0m] = preview.css([31m[1;31m"[0m[31m.image-list-link img[1;31m"[0m[31m[0m).first[[31m[1;31m"[0m[31msrc[1;31m"[0m[31m[0m].gsub([31m[1;31m'[0m[31mb.jpg[1;31m'[0m[31m[0m, [31m[1;31m'[0m[31m.jpg[1;31m'[0m[31m[0m)
+    [1;34m20[0m:     hash[[33m:type[0m] = preview.css([31m[1;31m"[0m[31mdiv.hover div.post-info[1;31m"[0m[31m[0m).text [1;34m#because I want to filter out galleries and animated gifs[0m
+    [1;34m21[0m:     @images << hash
+    [1;34m22[0m:   [32mend[0m
+    [1;34m23[0m:   @images = @images[[1;34m0[0m..[1;34m5[0m].select {|x| x[[33m:type[0m].include?([31m[1;31m'[0m[31mimage[1;31m'[0m[31m[0m)}
+ => [1;34m24[0m:   binding.pry
+    [1;34m25[0m:   [1;36mself[0m
+    [1;34m26[0m: [32mend[0m
+
