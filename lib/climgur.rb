@@ -11,4 +11,4 @@ module Climgur
 
 end
 
-new = Climgur::CLI.new.start
+#new = Climgur::CLI.new.start

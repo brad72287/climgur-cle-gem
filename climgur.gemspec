@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["brad72287"]
   spec.email         = ["brad72287@gmail.com"]
 
-  spec.summary       = %q{command line imgur browser}
+  spec.summary       = %q{a command line imgur browser using the asciiart gem}
   spec.homepage      = "https://github.com/brad72287/climgur-cle-gem"
   spec.license       = "MIT"
 
@@ -23,8 +23,9 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  #spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.executables = 'bin/climgur'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
@@ -32,5 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "asciiart"
 
   spec.add_dependency "nokogiri"
+  spec.add_dependency "open-uri"
+  spec.add_dependency "asciiart"
 
 end
