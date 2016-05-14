@@ -20,7 +20,7 @@ class Climgur::ImgurGet
   end
 
   def display_top_images
-    puts "top 5 most popular images on imgur right now: \n --------"
+    puts "the most popular images on imgur right now: \n --------"
     self.images.each_with_index do |x, index|
        puts self.small_image(x[:preview_url])
        puts "(#{index+1}) "+x[:description]
