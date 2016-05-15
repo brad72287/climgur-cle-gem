@@ -46,9 +46,4 @@ class Climgur::ImgurGet
 
 end
 
-# hello = Climgur.new
-# hello.scrape_main_page
-# #puts hello.large_image("//i3.kym-cdn.com/photos/images/newsfeed/000/925/494/218.png_large")
-# hello.display_top_five
-
 

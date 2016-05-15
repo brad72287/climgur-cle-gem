@@ -46,5 +46,3 @@ class Climgur::CLI
     puts "goodbye!"
   end
 end
-
-#CLI.new.call
