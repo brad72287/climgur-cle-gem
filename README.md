@@ -4,6 +4,8 @@ CLImgur is a command line tool that will fetch the current most popular pictures
 
 ## Installation
 
+Note: CLImgur required the ImageMagick library to be installed or it won't work.  You can get ImageMagick from imagemagick.org
+
 Add this line to your application's Gemfile:
 
 ```ruby
